@@ -1,0 +1,38 @@
+SIH26060 ANTARCTIC EDGEOPS — WINDOWS SETUP
+
+Prerequisite: Node.js 18.18+ (Node 20 LTS recommended).
+
+Every service now checks its own Node version on startup. If your Node is
+too old you will see a clear "NODE.JS VERSION TOO OLD" message telling you
+exactly what to do, instead of a confusing crash.
+
+Do not use Linux syntax such as:
+STATION_ID=maitri node agent.js
+
+Use the Windows-safe commands below.
+
+WINDOW 1
+cd central-control-plane
+npm install
+npm start
+
+WINDOW 2
+cd station-edge-agent
+npm install
+npm run maitri
+
+WINDOW 3
+cd station-edge-agent
+npm run bharati
+
+WINDOW 4
+cd sync-engine
+npm install
+npm start
+
+WINDOW 5
+cd researcher-control-tower
+npm install
+npm run dev
+
+Open http://localhost:3000
